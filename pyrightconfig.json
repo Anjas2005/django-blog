@@ -1,4 +1,4 @@
 {
-  "typeCheckingMode": "basic",
-  "reportMissingTypeStubs": false
+  "venvPath": ".",
+  "venv": "env"
 }
