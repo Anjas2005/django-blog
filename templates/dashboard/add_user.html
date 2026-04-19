@@ -1,0 +1,28 @@
+
+{% extends "base.html" %}
+
+{% block content %}
+{% load crispy_forms_tags %}
+
+  {% if perms.auth.add_user %}
+  
+  <div class="row">
+    <!-- Load the left side bar here -->
+    {% include 'dashboard/sidebar.html' %}
+    <!-- Right Side Content -->
+
+   <div class="col-md-9">
+      <h2>Add New User</h2>
+      <form action="{% url 'add_user' %}" method="POST" >
+        {% csrf_token %}
+        {{ form | crispy}}
+        <button type="submit" class="btn btn-warning">Submit</button>
+        
+      </form>
+      <br>
+    </div>
+  </div>
+  {% else %}
+  <h5>YOU DONT HAVE THE PERMISSION TO ACCESS THIS CONTENT</h5>
+  {% endif %}
+{% endblock content %}
